@@ -1,5 +1,149 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+::-webkit-scrollbar{
+    display: hidden;
+}
+body {
+    background: #000;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+}
+
+button{
+    outline: none;
+    border: none;
+}
+
+select{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 16l-6-6h12z' fill='rgba(255,255,255,1)'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 5px;
+    border: 1px solid #dfdfdf;
+    border-radius: 2px;
+    margin-right: 2rem;
+    padding: 1rem;
+    padding-right: 2rem;
+}
+
+nav {
+    /* border:1px solid red; */
+    padding: 1rem .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown {
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    width: 200px;
+
+}
+
+.dropdown.category {
+    width: 255px;
+}
+
+option {
+    color: #fff;
+    background: #000;
+}
+
+button {
+    color: black;
+    background: #fff;
+    padding: 1rem .5rem;
+}
+
+#globeViz.reduce{
+    width: 50%;
+    height: 50%;
+}
+#main-globe {
+    display: flex;
+    gap: 20px;
+    
+}
+
+
+#globe2{
+    display: none;
+
+}
+
+#globe2.show{
+    display: block;
+
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: .7rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.btn:hover{
+    opacity: .8;
+}
+
+
+footer{
+    z-index: 999;
+    width: 100%;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0px;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    font-family: 'Poppins',sans-serif;
+
+}
+footer img{
+    border-radius:10px ;
+}
+.add{
+    height: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    border-radius: 6px;
+    opacity: .8;
+    margin-right: 6rem;
+
+    cursor: pointer;
+}
+
+.add:hover{
+    opacity: 1;
+}
+
+.btn.compare{
+    font-size: 1rem;
+}
+.btn.compare img{
+    width:15px;
 }
