@@ -65,13 +65,32 @@
     </footer>
     <script>
         fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countries => {
-            
+            const addToCompare = document.getElementById("compare");
+            const globeViz = document.getElementById("globeViz");
+            let canReduce = false
+            addToCompare.addEventListener("click", () => {
+                if (!canReduce) {
+                    canReduce = true
+                } else {
+                    canReduce = false;
+                }
+                if (canReduce) {
+                    renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
+                }
+                else {
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+
+                }
+
+            })
             const Globe = new ThreeGlobe()
                 .globeImageUrl('RenderData.jfif')
 
             // Setup renderer
             const renderer = new THREE.WebGLRenderer();
-            renderer.setSize(window.innerWidth , window.innerHeight);
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
             document.getElementById('globeViz').appendChild(renderer.domElement)
 
             // Setup scene
@@ -119,7 +138,7 @@
             const camera = new THREE.PerspectiveCamera();
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
-            camera.position.z = 300;
+            camera.position.z = 400;
 
             // Add camera controls
             const tbControls = new THREE.TrackballControls(camera, renderer.domElement);
