@@ -37,10 +37,13 @@ select{
 
 nav {
     /* border:1px solid red; */
+    /* width: 80%; */
     padding: 1rem .5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* display: flex;
+    flex-wrap: wrap; */
 }
 
 .dropdown {
@@ -69,15 +72,20 @@ button {
     background: #fff;
     padding: 1rem .5rem;
 }
-
-#globeViz{
+.globe{
+    margin: 0;
+}
+/* #globe1{
     width: 50%;
     height: 50%;
-}
+} */
 #main-globe {
     display: flex;
-    gap: 20px;
-    
+    /* gap: 20px; */
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+
 }
 
 
@@ -86,7 +94,7 @@ button {
 
 }
 
-#globe2.show{
+#globe2 .show{
     display: block;
 
 }

@@ -8,40 +8,46 @@
 </head>
 
 <body>
-    <nav>
+    <script>
+        let noOfGlobes = 1;
+        function updateCompares(){
+            if(noOfGlobes==4) {
+                alert("only 4 compares are allowed at this time")
+                return false;
+            }
+            console.log("update")
+            noOfGlobes++;
+            renderAll();
+        }
+        let img1 = "RenderData.jfif";
+        let img2 = "RenderData.jfif";
+        let img3 = "RenderData.jfif";
+        let img4 = "RenderData.jfif";
+        function updateRenderImage(globe, imgSelected, timeFrame, date){
+            
+        }
+    </script>
+    <!-- <nav>
         <Select name="categories" id="category" class="dropdown category">
 
             <option value="none" selected disabled hidden>Select Category</option>
-            <option value="Temprature">Data based on temperatures</option>
-            <option value="Temprature">Data based on temperatures</option>
-            <option value="Temprature">Data based on temperatures</option>
-            <option value="Temprature">Data based on temperatures</option>
-            <option value="Temprature">Data based on temperatures</option>
+            <option value="Land Surface Temprature">Land Surface Temperature</option>
+            <option value="Cloud Fraction">Cloud Fraction</option>
+            <option value="Ozone">Ozone</option>
+            <option value="Water Vapour">Water Vapour</option>
+            <option value="Net Radiation">Net Radiation</option>
 
         </Select>
         <Select name="Year" id="Year" class="dropdown">
             <option value="none" selected disabled hidden>Select Year</option>
-            <option value="2016">2016</option>
-            <option value="2015">2015</option>
-            <option value="2014">2014</option>
-            <option value="2012">2012</option>
+            <option value="2022">2022</option>
 
         </Select>
         <Select name="Month" id="Month" class="dropdown">
             <option value="none" selected disabled hidden>Select Month</option>
-            <option value="January">January</option>
-            <option value="Feburary">Feburary</option>
-            <option value="March">March</option>
-            <option value="April">April</option>
-            <option value="May">May</option>
-            <option value="June">June</option>
-            <option value="April">April</option>
-            <option value="July">July</option>
-            <option value="August">August</option>
+            
             <option value="September">September</option>
-            <option value="October">October</option>
-            <option value="November">November</option>
-            <option value="Decemeber">Decemeber</option>
+            
         </Select>
         <select name="Days" id="calendar" class="dropdown">
             <option value="none" selected disabled hidden>Select Days</option>
@@ -49,111 +55,376 @@
             <option value="2">2</option>
             <option value="3">3</option>
         </Select>
-
+        <button class="btn">Show</button>
         <button class="btn">Export <img src="Vector.svg" alt="arrow"></button>
-    </nav>
+    </nav> -->
     <div id="main-globe">
-        <div id="globeViz"></div>
-
-        <div id="globe2"></div>
+        <div id="g1">
+            <nav>
+                <Select name="categories" id="category" class="dropdown category">
+        
+                    <option value="none" selected disabled hidden>Select Category</option>
+                    <option value="Land Surface Temprature">Land Surface Temperature</option>
+                    <option value="Cloud Fraction">Cloud Fraction</option>
+                    <option value="Ozone">Ozone</option>
+                    <option value="Water Vapour">Water Vapour</option>
+                    <option value="Net Radiation">Net Radiation</option>
+        
+                </Select>
+                <Select name="Year" id="Year" class="dropdown">
+                    <option value="none" selected disabled hidden>Select Year</option>
+                    <option value="2022">2022</option>
+        
+                </Select>
+                <Select name="Month" id="Month" class="dropdown">
+                    <option value="none" selected disabled hidden>Select Month</option>
+                    
+                    <option value="September">September</option>
+                    
+                </Select>
+                <!-- <select name="Days" id="calendar" class="dropdown">
+                    <option value="none" selected disabled hidden>Select Days</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </Select> -->
+                <button class="btn">Show</button>
+                <button class="btn">Export <img src="Vector.svg" alt="arrow"></button>
+            </nav>
+            <div id="globe1" class="globe"></div>
+        </div>
+        <div id="g2">
+            <nav>
+                <Select name="categories" id="category" class="dropdown category">
+        
+                    <option value="none" selected disabled hidden>Select Category</option>
+                    <option value="Land Surface Temprature">Land Surface Temperature</option>
+                    <option value="Cloud Fraction">Cloud Fraction</option>
+                    <option value="Ozone">Ozone</option>
+                    <option value="Water Vapour">Water Vapour</option>
+                    <option value="Net Radiation">Net Radiation</option>
+        
+                </Select>
+                <Select name="Year" id="Year" class="dropdown">
+                    <option value="none" selected disabled hidden>Select Year</option>
+                    <option value="2022">2022</option>
+        
+                </Select>
+                <Select name="Month" id="Month" class="dropdown">
+                    <option value="none" selected disabled hidden>Select Month</option>
+                    
+                    <option value="September">September</option>
+                    
+                </Select>
+                <!-- <select name="Days" id="calendar" class="dropdown">
+                    <option value="none" selected disabled hidden>Select Days</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </Select> -->
+                <button class="btn">Show</button>
+                <button class="btn">Export <img src="Vector.svg" alt="arrow"></button>
+            </nav>
+            <div id="globe2" class="globe"></div>
+        </div>
+        <div id="g3">
+            <nav>
+                <Select name="categories" id="category" class="dropdown category">
+        
+                    <option value="none" selected disabled hidden>Select Category</option>
+                    <option value="Land Surface Temprature">Land Surface Temperature</option>
+                    <option value="Cloud Fraction">Cloud Fraction</option>
+                    <option value="Ozone">Ozone</option>
+                    <option value="Water Vapour">Water Vapour</option>
+                    <option value="Net Radiation">Net Radiation</option>
+        
+                </Select>
+                <Select name="Year" id="Year" class="dropdown">
+                    <option value="none" selected disabled hidden>Select Year</option>
+                    <option value="2022">2022</option>
+        
+                </Select>
+                <Select name="Month" id="Month" class="dropdown">
+                    <option value="none" selected disabled hidden>Select Month</option>
+                    
+                    <option value="September">September</option>
+                    
+                </Select>
+                <!-- <select name="Days" id="calendar" class="dropdown">
+                    <option value="none" selected disabled hidden>Select Days</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </Select> -->
+                <button class="btn">Show</button>
+                <button class="btn">Export <img src="Vector.svg" alt="arrow"></button>
+            </nav>
+            <div id="globe3" class="globe"></div>
+        </div>
+        <div id="g4">
+            <nav>
+                <Select name="categories" id="category" class="dropdown category">
+        
+                    <option value="none" selected disabled hidden>Select Category</option>
+                    <option value="Land Surface Temprature">Land Surface Temperature</option>
+                    <option value="Cloud Fraction">Cloud Fraction</option>
+                    <option value="Ozone">Ozone</option>
+                    <option value="Water Vapour">Water Vapour</option>
+                    <option value="Net Radiation">Net Radiation</option>
+        
+                </Select>
+                <Select name="Year" id="Year" class="dropdown">
+                    <option value="none" selected disabled hidden>Select Year</option>
+                    <option value="2022">2022</option>
+        
+                </Select>
+                <Select name="Month" id="Month" class="dropdown">
+                    <option value="none" selected disabled hidden>Select Month</option>
+                    
+                    <option value="September">September</option>
+                    
+                </Select>
+                <!-- <select name="Days" id="calendar" class="dropdown">
+                    <option value="none" selected disabled hidden>Select Days</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </Select> -->
+                <button class="btn">Show</button>
+                <button class="btn">Export <img src="Vector.svg" alt="arrow"></button>
+            </nav>
+            <div id="globe4" class="globe"></div>
+        </div>
     </div>
     <footer>
         <img src="color table.jpg" alt="colorTable">
         <button class="add">Upload<i class="ri-add-fill"></i></button>
-        <button class="btn compare" id="compare">Add to compare <img src="Vector.svg" alt="arrow"></button>
-
+        <button class="btn compare" id="compare" onClick="updateCompares()">Add to compare <img src="Vector.svg" alt="arrow"></button>
     </footer>
     <script>
-        fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countries => {
-            const addToCompare = document.getElementById("compare");
-            const globeViz = document.getElementById("globeViz");
-            let canReduce = false
-            addToCompare.addEventListener("click", () => {
-                if (!canReduce) {
-                    canReduce = true
-                } else {
-                    canReduce = false;
-                }
-                if (canReduce) {
-                    renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
-                }
-                else {
-                    renderer.setSize(window.innerWidth, window.innerHeight);
+        
+        function renderAll(){
+            for(let i=1; i<=4; i++){
+                document.getElementById(`globe${i}`).innerHTML = "";
+            }
+            // const Globe = new ThreeGlobe()
+            //         .globeImageUrl('RenderData.jfif')
 
-                }
+            // // Setup renderer
+            // const renderer = new THREE.WebGLRenderer();
 
-            })
-            const Globe = new ThreeGlobe()
-                .globeImageUrl('RenderData.jfif')
+            // renderer.setSize((window.innerWidth-100), (window.innerHeight-100));
 
-            // Setup renderer
-            const renderer = new THREE.WebGLRenderer();
+            // document.getElementById('globe1').appendChild(renderer.domElement)
 
-            renderer.setSize(window.innerWidth, window.innerHeight);
+            // // Setup scene
+            // const scene = new THREE.Scene();
+            // scene.add(Globe);
+            // scene.add(new THREE.AmbientLight(0xbbbbbb));
+            // scene.add(new THREE.DirectionalLight(0xffffff, 0.6));
 
-            document.getElementById('globeViz').appendChild(renderer.domElement)
+            // // Setup camera
+            // const camera = new THREE.PerspectiveCamera();
+            // camera.aspect = (window.innerWidth-100) / (window.innerHeight-100);
+            // camera.updateProjectionMatrix();
+            // camera.position.z = 400;
 
-            // Setup scene
-            const scene = new THREE.Scene();
-            scene.add(Globe);
-            scene.add(new THREE.AmbientLight(0xbbbbbb));
-            scene.add(new THREE.DirectionalLight(0xffffff, 0.6));
+            // // Add camera controls
+            // const tbControls = new THREE.TrackballControls(camera, renderer.domElement);
+            // tbControls.minDistance = 101;
+            // tbControls.rotateSpeed = 5;
+            // tbControls.zoomSpeed = 0.8;
 
-            // Setup camera
-            const camera = new THREE.PerspectiveCamera();
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            camera.position.z = 400;
+            // // Kick-off renderer
+            // (function animate() { // IIFE
+            //     // Frame cycle
+            //     tbControls.update();
+            //     renderer.render(scene, camera);
+            //     requestAnimationFrame(animate);
+            // })();
 
-            // Add camera controls
-            const tbControls = new THREE.TrackballControls(camera, renderer.domElement);
-            tbControls.minDistance = 101;
-            tbControls.rotateSpeed = 5;
-            tbControls.zoomSpeed = 0.8;
+            console.log(noOfGlobes)
 
-            // Kick-off renderer
-            (function animate() { // IIFE
-                // Frame cycle
-                tbControls.update();
-                renderer.render(scene, camera);
-                requestAnimationFrame(animate);
-            })();
-        });
-        fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(countries => {
-            const Globe = new ThreeGlobe()
-                .globeImageUrl('RenderData.jfif')
+            if(noOfGlobes>=1)
+            fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson').then(res => res.json())
+            .then(countries => {
+                const Globe = new ThreeGlobe()
+                    .globeImageUrl(img1)
 
-            // Setup renderer
-            const renderer = new THREE.WebGLRenderer();
-            renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
-            document.getElementById('globe2').appendChild(renderer.domElement)
+                // Setup renderer
+                const renderer = new THREE.WebGLRenderer();
 
-            // Setup scene
-            const scene = new THREE.Scene();
-            scene.add(Globe);
-            scene.add(new THREE.AmbientLight(0xbbbbbb));
-            scene.add(new THREE.DirectionalLight(0xffffff, 0.6));
+                renderer.setSize((window.innerWidth-100), (window.innerHeight-100));
 
-            // Setup camera
-            const camera = new THREE.PerspectiveCamera();
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            camera.position.z = 400;
+                document.getElementById('globe1').appendChild(renderer.domElement)
 
-            // Add camera controls
-            const tbControls = new THREE.TrackballControls(camera, renderer.domElement);
-            tbControls.minDistance = 101;
-            tbControls.rotateSpeed = 5;
-            tbControls.zoomSpeed = 0.8;
+                // Setup scene
+                const scene = new THREE.Scene();
+                scene.add(Globe);
+                scene.add(new THREE.AmbientLight(0xbbbbbb));
+                scene.add(new THREE.DirectionalLight(0xffffff, 0.6));
 
-            // Kick-off renderer
-            (function animate() { // IIFE
-                // Frame cycle
-                tbControls.update();
-                renderer.render(scene, camera);
-                requestAnimationFrame(animate);
-            })();
-        });
+                // Setup camera
+                const camera = new THREE.PerspectiveCamera();
+                camera.aspect = (window.innerWidth-100) / (window.innerHeight-100);
+                camera.updateProjectionMatrix();
+                camera.position.z = 400;
+
+                // Add camera controls
+                const tbControls = new THREE.TrackballControls(camera, renderer.domElement);
+                tbControls.minDistance = 101;
+                tbControls.rotateSpeed = 5;
+                tbControls.zoomSpeed = 0.8;
+
+                // Kick-off renderer
+                (function animate() { // IIFE
+                    // Frame cycle
+                    tbControls.update();
+                    renderer.render(scene, camera);
+                    requestAnimationFrame(animate);
+                })();
+
+                const addToCompare = document.getElementById("compare");
+                const globe1 = document.getElementById("globe1");
+                let canReduce = false
+                let widthDivider = noOfGlobes==1?1:2;
+                // addToCompare.addEventListener("click", () => {
+                    // if (!canReduce) {
+                    //     canReduce = true
+                    // } else {
+                    //     canReduce = false;
+                    // }
+                    // if (canReduce) {
+                        renderer.setSize(window.innerWidth / widthDivider, (window.innerHeight-100) / widthDivider);
+                    // }
+                    // else {
+                    //     renderer.setSize((window.innerWidth-100), window.innerHeight);
+
+                    // }
+                // })
+                
+            });
+            
+            if(noOfGlobes>=2)
+            fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson').then(res => res.json())
+            .then(countries => {
+                const Globe = new ThreeGlobe()
+                    .globeImageUrl(img2)
+                // console.log("2globe")
+                // Setup renderer
+                const renderer = new THREE.WebGLRenderer();
+                let widthDivider = 2;
+                renderer.setSize((window.innerWidth-100) / widthDivider, (window.innerHeight-100) / widthDivider);
+                document.getElementById('globe2').style.display = "block";
+                document.getElementById('globe2').appendChild(renderer.domElement)
+
+                // Setup scene
+                const scene = new THREE.Scene();
+                scene.add(Globe);
+                scene.add(new THREE.AmbientLight(0xbbbbbb));
+                scene.add(new THREE.DirectionalLight(0xffffff, 0.6));
+
+                // Setup camera
+                const camera = new THREE.PerspectiveCamera();
+                camera.aspect = (window.innerWidth-100) / (window.innerHeight-100);
+                camera.updateProjectionMatrix();
+                camera.position.z = 400;
+
+                // Add camera controls
+                const tbControls = new THREE.TrackballControls(camera, renderer.domElement);
+                tbControls.minDistance = 101;
+                tbControls.rotateSpeed = 5;
+                tbControls.zoomSpeed = 0.8;
+
+                // Kick-off renderer
+                (function animate() { // IIFE
+                    // Frame cycle
+                    tbControls.update();
+                    renderer.render(scene, camera);
+                    requestAnimationFrame(animate);
+                })();
+            });
+            if(noOfGlobes>=3)
+            fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson').then(res => res.json())
+            .then(countries => {
+                const Globe = new ThreeGlobe()
+                    .globeImageUrl(img3)
+
+                // Setup renderer
+                const renderer = new THREE.WebGLRenderer();
+                let widthDivider = 2;
+                renderer.setSize((window.innerWidth-100) / widthDivider, (window.innerHeight-100) / widthDivider);
+                document.getElementById('globe3').style.display = "block";
+                document.getElementById('globe3').appendChild(renderer.domElement)
+
+                // Setup scene
+                const scene = new THREE.Scene();
+                scene.add(Globe);
+                scene.add(new THREE.AmbientLight(0xbbbbbb));
+                scene.add(new THREE.DirectionalLight(0xffffff, 0.6));
+
+                // Setup camera
+                const camera = new THREE.PerspectiveCamera();
+                camera.aspect = (window.innerWidth-100) / (window.innerHeight-100);
+                camera.updateProjectionMatrix();
+                camera.position.z = 400;
+
+                // Add camera controls
+                const tbControls = new THREE.TrackballControls(camera, renderer.domElement);
+                tbControls.minDistance = 101;
+                tbControls.rotateSpeed = 5;
+                tbControls.zoomSpeed = 0.8;
+
+                // Kick-off renderer
+                (function animate() { // IIFE
+                    // Frame cycle
+                    tbControls.update();
+                    renderer.render(scene, camera);
+                    requestAnimationFrame(animate);
+                })();
+            });
+            if(noOfGlobes==4)
+            fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson').then(res => res.json())
+            .then(countries => {
+                const Globe = new ThreeGlobe()
+                    .globeImageUrl(img4)
+
+                // Setup renderer
+                const renderer = new THREE.WebGLRenderer();
+                let widthDivider = noOfGlobes % 3 == 0 ? noOfGlobes:2;
+                renderer.setSize((window.innerWidth-100) / widthDivider, (window.innerHeight-100) / widthDivider);
+                document.getElementById('globe4').style.display = "block";
+                document.getElementById('globe4').appendChild(renderer.domElement)
+
+                // Setup scene
+                const scene = new THREE.Scene();
+                scene.add(Globe);
+                scene.add(new THREE.AmbientLight(0xbbbbbb));
+                scene.add(new THREE.DirectionalLight(0xffffff, 0.6));
+
+                // Setup camera
+                const camera = new THREE.PerspectiveCamera();
+                camera.aspect = (window.innerWidth-100) / (window.innerHeight-100);
+                camera.updateProjectionMatrix();
+                camera.position.z = 400;
+
+                // Add camera controls
+                const tbControls = new THREE.TrackballControls(camera, renderer.domElement);
+                tbControls.minDistance = 101;
+                tbControls.rotateSpeed = 5;
+                tbControls.zoomSpeed = 0.8;
+
+                // Kick-off renderer
+                (function animate() { // IIFE
+                    // Frame cycle
+                    tbControls.update();
+                    renderer.render(scene, camera);
+                    requestAnimationFrame(animate);
+                })();
+            });
+        
+        }
+        renderAll()
     </script>
 
 </body>
