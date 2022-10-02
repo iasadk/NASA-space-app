@@ -10,8 +10,8 @@
 <body>
     <script>
         let noOfGlobes = 1;
-        function updateCompares(){
-            if(noOfGlobes==4) {
+        function updateCompares() {
+            if (noOfGlobes == 4) {
                 alert("only 4 compares are allowed at this time")
                 return false;
             }
@@ -23,92 +23,64 @@
         let img2 = "RenderData.jfif";
         let img3 = "RenderData.jfif";
         let img4 = "RenderData.jfif";
-        function updateRenderImage(id){
+        function updateRenderImage(id, exportId) {
             let selectEle = document.querySelector(`#nav${id}`).querySelectorAll("select");
             let filePath = "./NASA_CHALLENGE_DATASET_MAP";
+            let exportBtn = document.querySelector(`#${exportId}`);
+            console.log(exportBtn)
             // for(let i=0; i<2; i++){
-                let category = "";
+            let category = "";
 
-                for(let i=0; i<selectEle[0].value.length; i++){
-                    if(selectEle[0].value.charAt(i)==" "){
-                        category+="_"
-                    }
-                    else{
-                    category+=selectEle[0].value.charAt(i);
-                    }
+            for (let i = 0; i < selectEle[0].value.length; i++) {
+                if (selectEle[0].value.charAt(i) == " ") {
+                    category += "_"
                 }
-                filePath += "/"+category   ;
-                // filePath += "/"+selectEle[1].value;
-                filePath += "/"+selectEle[3].value.charAt(0)+".jfif";
+                else {
+                    category += selectEle[0].value.charAt(i);
+                }
+            }
+            filePath += "/" + category;
+            // filePath += "/"+selectEle[1].value;
+            filePath += "/" + selectEle[3].value.charAt(0) + ".jfif";
             // }
             filePath = filePath.toString()
+            exportBtn.href = filePath
             console.log(filePath)
-            switch (id){
-                case 1: img1 = filePath;break;
-                case 2: img2 = filePath;break;
-                case 3: img3 = filePath;break;
-                case 4: img4 = filePath;break;
+            switch (id) {
+                case 1: img1 = filePath; break;
+                case 2: img2 = filePath; break;
+                case 3: img3 = filePath; break;
+                case 4: img4 = filePath; break;
                 default: alert("debug req");
             }
-            console.log(img1,img2,img3,img4)
-            
+            // console.log(img1, img2, img3, img4)
+
             renderAll();
         }
     </script>
-    <!-- <nav>
-        <Select name="categories" id="category" class="dropdown category">
-
-            <option value="none" selected disabled hidden>Select Category</option>
-            <option value="Land Surface Temprature">Land Surface Temperature</option>
-            <option value="Cloud Fraction">Cloud Fraction</option>
-            <option value="Ozone">Ozone</option>
-            <option value="Water Vapour">Water Vapour</option>
-            <option value="Net Radiation">Net Radiation</option>
-
-        </Select>
-        <Select name="Year" id="Year" class="dropdown">
-            <option value="none" selected disabled hidden>Select Year</option>
-            <option value="2022">2022</option>
-
-        </Select>
-        <Select name="Month" id="Month" class="dropdown">
-            <option value="none" selected disabled hidden>Select Month</option>
-            
-            <option value="September">September</option>
-            
-        </Select>
-        <select name="Days" id="calendar" class="dropdown">
-            <option value="none" selected disabled hidden>Select Days</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </Select>
-        <button class="btn">Show</button>
-        <button class="btn">Export <img src="Vector.svg" alt="arrow"></button>
-    </nav> -->
     <div id="main-globe">
         <div id="g1">
-            <nav id = "nav1">
+            <nav id="nav1">
                 <Select name="categories" id="categoryG1" class="dropdown category">
-        
+
                     <option value="none" selected disabled hidden>Select Category</option>
                     <option value="Land Surface Temperature">Land Surface Temperature</option>
                     <option value="Cloud Fraction">Cloud Fraction</option>
                     <option value="Ozone">Ozone</option>
                     <option value="Water Vapour">Water Vapour</option>
                     <option value="Net Radiation">Net Radiation</option>
-        
+
                 </Select>
                 <Select name="Year" id="YearG1" class="dropdown">
                     <option value="none" selected disabled hidden>Select Year</option>
                     <option value="2022">2022</option>
-        
+
                 </Select>
                 <Select name="Month" id="MonthG1" class="dropdown">
                     <option value="none" selected disabled hidden>Select Month</option>
-                    
+
                     <option value="September">September</option>
-                    
+
                 </Select>
                 <select name="Day" id="Day" class="dropdown">
 
@@ -119,120 +91,106 @@
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </Select> -->
-                <button class="btn" onClick="updateRenderImage(1)">Show</button>
-                <button class="btn">Export <img src="Vector.svg" alt="arrow"></button>
+                <button class="btn" onClick="updateRenderImage(1,'one')">Show</button>
+                <a class="btn" id="one" href="RenderData.jfif">Export <img src="Vector.svg" alt="arrow"></a>
+
             </nav>
             <div id="globe1" class="globe"></div>
         </div>
         <div id="g2">
-            <nav id = "nav2" class="hide">
-                
+            <nav id="nav2" class="hide">
+
                 <Select name="categories" id="category" class="dropdown category">
-        
+
                     <option value="none" selected disabled hidden>Select Category</option>
                     <option value="Land Surface Temperature">Land Surface Temperature</option>
                     <option value="Cloud Fraction">Cloud Fraction</option>
                     <option value="Ozone">Ozone</option>
                     <option value="Water Vapour">Water Vapour</option>
                     <option value="Net Radiation">Net Radiation</option>
-        
+
                 </Select>
                 <Select name="Year" id="Year" class="dropdown">
                     <option value="none" selected disabled hidden>Select Year</option>
                     <option value="2022">2022</option>
-        
+
                 </Select>
                 <Select name="Month" id="Month" class="dropdown">
                     <option value="none" selected disabled hidden>Select Month</option>
-                    
+
                     <option value="September">September</option>
-                    
+
                 </Select>
                 <select name="Day" id="Day" class="dropdown">
-                    
+
                 </select>
-                <!-- <select name="Days" id="calendar" class="dropdown">
-                    <option value="none" selected disabled hidden>Select Days</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </Select> -->
-                <button class="btn" onClick="updateRenderImage(2)">Show</button>
-                <button class="btn">Export <img src="Vector.svg" alt="arrow"></button>
+                <button class="btn" onClick="updateRenderImage(2,'two')">Show</button>
+                <a class="btn" id="two" href="RenderData.jfif">Export <img src="Vector.svg" alt="arrow"></a>
+
             </nav>
             <div id="globe2" class="globe"></div>
         </div>
         <div id="g3">
-            <nav id = "nav3" class="hide">
+            <nav id="nav3" class="hide">
                 <Select name="categories" id="category" class="dropdown category">
-        
+
                     <option value="none" selected disabled hidden>Select Category</option>
                     <option value="Land Surface Temperature">Land Surface Temperature</option>
                     <option value="Cloud Fraction">Cloud Fraction</option>
                     <option value="Ozone">Ozone</option>
                     <option value="Water Vapour">Water Vapour</option>
                     <option value="Net Radiation">Net Radiation</option>
-        
+
                 </Select>
                 <Select name="Year" id="Year" class="dropdown">
                     <option value="none" selected disabled hidden>Select Year</option>
                     <option value="2022">2022</option>
-        
+
                 </Select>
                 <Select name="Month" id="Month" class="dropdown">
                     <option value="none" selected disabled hidden>Select Month</option>
-                    
+
                     <option value="September">September</option>
-                    
+
                 </Select>
                 <select name="Day" id="Day" class="dropdown">
-                    
+
                 </select>
-                <!-- <select name="Days" id="calendar" class="dropdown">
-                    <option value="none" selected disabled hidden>Select Days</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </Select> -->
-                <button class="btn" onClick="updateRenderImage(3)">Show</button>
-                <button class="btn">Export <img src="Vector.svg" alt="arrow"></button>
+                <button class="btn" onClick="updateRenderImage(3,'three')">Show</button>
+                <a class="btn" id="three" href="RenderData.jfif">Export <img src="Vector.svg" alt="arrow"></a>
+
             </nav>
             <div id="globe3" class="globe"></div>
         </div>
         <div id="g4">
             <nav id="nav4" class="hide">
                 <Select name="categories" id="category" class="dropdown category">
-        
+
                     <option value="none" selected disabled hidden>Select Category</option>
                     <option value="Land Surface Temperature">Land Surface Temperature</option>
                     <option value="Cloud Fraction">Cloud Fraction</option>
                     <option value="Ozone">Ozone</option>
                     <option value="Water Vapour">Water Vapour</option>
                     <option value="Net Radiation">Net Radiation</option>
-        
+
                 </Select>
                 <Select name="Year" id="Year" class="dropdown">
                     <option value="none" selected disabled hidden>Select Year</option>
                     <option value="2022">2022</option>
-        
+
                 </Select>
                 <Select name="Month" id="Month" class="dropdown">
                     <option value="none" selected disabled hidden>Select Month</option>
-                    
+
                     <option value="September">September</option>
-                    
+
                 </Select>
                 <select name="Day" id="Day" class="dropdown">
-                    
+
                 </select>
-                <!-- <select name="Days" id="calendar" class="dropdown">
-                    <option value="none" selected disabled hidden>Select Days</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </Select> -->
-                <button class="btn" onClick="updateRenderImage(4)">Show</button>
-                <button class="btn">Export <img src="Vector.svg" alt="arrow"></button>
+                <button class="btn" onClick="updateRenderImage(4,'four')">Show</button>
+                <a class="btn" id="four" href="RenderData.jfif">Export <img src="Vector.svg" alt="arrow"></a>
+
             </nav>
             <div id="globe4" class="globe"></div>
         </div>
@@ -240,12 +198,13 @@
     <footer>
         <img src="color table.jpg" alt="colorTable">
         <button class="add">Upload<i class="ri-add-fill"></i></button>
-        <button class="btn compare" id="compare" onClick="updateCompares()">Add to compare <img src="Vector.svg" alt="arrow"></button>
+        <button class="btn compare" id="compare" onClick="updateCompares()">Add to compare <img src="Vector.svg"
+                alt="arrow"></button>
     </footer>
     <script>
         let dayOptions = document.querySelectorAll("#Day");
-        for(let i=0; i<dayOptions.length; i++){
-            for(let j=1; j<=30; j++){
+        for (let i = 0; i < dayOptions.length; i++) {
+            for (let j = 1; j <= 30; j++) {
                 let option = document.createElement("option")
                 option.innerText = j;
                 option.setAttribute("value", j);
@@ -254,12 +213,12 @@
         }
     </script>
     <script>
-        
-        function renderAll(){
-            for(let i=1; i<=4; i++){
+
+        function renderAll() {
+            for (let i = 1; i <= 4; i++) {
                 document.getElementById(`globe${i}`).innerHTML = "";
             }
-            for(let i=1; i<=noOfGlobes; i++){
+            for (let i = 1; i <= noOfGlobes; i++) {
 
                 document.querySelector(`#nav${i}`).classList.remove("hide");
             }
@@ -301,213 +260,213 @@
 
             console.log(noOfGlobes)
 
-            if(noOfGlobes>=1)
-            fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson').then(res => res.json())
-            .then(countries => {
-                const select1 = document.querySelector("#categoryG1");
-                const select2 = document.querySelector("#YearG1");
-                const select3 = document.querySelector("#MonthG1");
-                const showG1 = document.querySelector("#showG1");
+            if (noOfGlobes >= 1)
+                fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson').then(res => res.json())
+                    .then(countries => {
+                        const select1 = document.querySelector("#categoryG1");
+                        const select2 = document.querySelector("#YearG1");
+                        const select3 = document.querySelector("#MonthG1");
+                        const showG1 = document.querySelector("#showG1");
 
 
 
-                let selectedCategory = "";
-                let selectedMonth = "";
-                let selectedYear = "";
-                const Globe = new ThreeGlobe()
+                        let selectedCategory = "";
+                        let selectedMonth = "";
+                        let selectedYear = "";
+                        const Globe = new ThreeGlobe()
 
 
-                select1.addEventListener("input", (e) => {
-                    selectedCategory = e.target.value;
-                });
-                select2.addEventListener("input", (e) => {
-                    selectedYear = e.target.value;
-                });
-                select3.addEventListener("input", (e) => {
-                    selectedMonth = e.target.value;
-                });
+                        select1.addEventListener("input", (e) => {
+                            selectedCategory = e.target.value;
+                        });
+                        select2.addEventListener("input", (e) => {
+                            selectedYear = e.target.value;
+                        });
+                        select3.addEventListener("input", (e) => {
+                            selectedMonth = e.target.value;
+                        });
 
-                if(selectedCategory=="Land Surface Temperature" && selectedYear!="" && selectedMonth!=""){
-                    Globe
-                    .globeImageUrl(img1)
-                }
-                else{
+                        if (selectedCategory == "Land Surface Temperature" && selectedYear != "" && selectedMonth != "") {
+                            Globe
+                                .globeImageUrl(img1)
+                        }
+                        else {
 
-                    Globe.globeImageUrl(img1)
-                }
+                            Globe.globeImageUrl(img1)
+                        }
 
-                // Setup renderer
-                const renderer = new THREE.WebGLRenderer();
+                        // Setup renderer
+                        const renderer = new THREE.WebGLRenderer();
 
-                renderer.setSize((window.innerWidth-100), (window.innerHeight-100));
+                        renderer.setSize((window.innerWidth - 100), (window.innerHeight - 100));
 
-                document.getElementById('globe1').appendChild(renderer.domElement)
+                        document.getElementById('globe1').appendChild(renderer.domElement)
 
-                // Setup scene
-                const scene = new THREE.Scene();
-                scene.add(Globe);
-                scene.add(new THREE.AmbientLight(0xbbbbbb));
-                scene.add(new THREE.DirectionalLight(0xffffff, 0.6));
+                        // Setup scene
+                        const scene = new THREE.Scene();
+                        scene.add(Globe);
+                        scene.add(new THREE.AmbientLight(0xbbbbbb));
+                        scene.add(new THREE.DirectionalLight(0xffffff, 0.6));
 
-                // Setup camera
-                const camera = new THREE.PerspectiveCamera();
-                camera.aspect = (window.innerWidth-100) / (window.innerHeight-100);
-                camera.updateProjectionMatrix();
-                camera.position.z = 400;
+                        // Setup camera
+                        const camera = new THREE.PerspectiveCamera();
+                        camera.aspect = (window.innerWidth - 100) / (window.innerHeight - 100);
+                        camera.updateProjectionMatrix();
+                        camera.position.z = 400;
 
-                // Add camera controls
-                const tbControls = new THREE.TrackballControls(camera, renderer.domElement);
-                tbControls.minDistance = 101;
-                tbControls.rotateSpeed = 5;
-                tbControls.zoomSpeed = 0.8;
+                        // Add camera controls
+                        const tbControls = new THREE.TrackballControls(camera, renderer.domElement);
+                        tbControls.minDistance = 101;
+                        tbControls.rotateSpeed = 5;
+                        tbControls.zoomSpeed = 0.8;
 
-                // Kick-off renderer
-                (function animate() { // IIFE
-                    // Frame cycle
-                    tbControls.update();
-                    renderer.render(scene, camera);
-                    requestAnimationFrame(animate);
-                })();
+                        // Kick-off renderer
+                        (function animate() { // IIFE
+                            // Frame cycle
+                            tbControls.update();
+                            renderer.render(scene, camera);
+                            requestAnimationFrame(animate);
+                        })();
 
-                const addToCompare = document.getElementById("compare");
-                const globe1 = document.getElementById("globe1");
-                let canReduce = false
-                let widthDivider = noOfGlobes==1?1:2;
-                // addToCompare.addEventListener("click", () => {
-                    // if (!canReduce) {
-                    //     canReduce = true
-                    // } else {
-                    //     canReduce = false;
-                    // }
-                    // if (canReduce) {
-                        renderer.setSize(window.innerWidth / widthDivider, (window.innerHeight-100) / widthDivider);
-                    // }
-                    // else {
-                    //     renderer.setSize((window.innerWidth-100), window.innerHeight);
+                        const addToCompare = document.getElementById("compare");
+                        const globe1 = document.getElementById("globe1");
+                        let canReduce = false
+                        let widthDivider = noOfGlobes == 1 ? 1 : 2;
+                        // addToCompare.addEventListener("click", () => {
+                        // if (!canReduce) {
+                        //     canReduce = true
+                        // } else {
+                        //     canReduce = false;
+                        // }
+                        // if (canReduce) {
+                        renderer.setSize(window.innerWidth / widthDivider, (window.innerHeight - 100) / widthDivider);
+                        // }
+                        // else {
+                        //     renderer.setSize((window.innerWidth-100), window.innerHeight);
 
-                    // }
-                // })
-                
-            });
-            
-            if(noOfGlobes>=2)
-            fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson').then(res => res.json())
-            .then(countries => {
-                const Globe = new ThreeGlobe()
-                    .globeImageUrl(img2)
-                // console.log("2globe")
-                // Setup renderer
-                const renderer = new THREE.WebGLRenderer();
-                let widthDivider = 2;
-                renderer.setSize((window.innerWidth-100) / widthDivider, (window.innerHeight-100) / widthDivider);
-                document.getElementById('globe2').style.display = "block";
-                document.getElementById('globe2').appendChild(renderer.domElement)
+                        // }
+                        // })
 
-                // Setup scene
-                const scene = new THREE.Scene();
-                scene.add(Globe);
-                scene.add(new THREE.AmbientLight(0xbbbbbb));
-                scene.add(new THREE.DirectionalLight(0xffffff, 0.6));
+                    });
 
-                // Setup camera
-                const camera = new THREE.PerspectiveCamera();
-                camera.aspect = (window.innerWidth-100) / (window.innerHeight-100);
-                camera.updateProjectionMatrix();
-                camera.position.z = 400;
+            if (noOfGlobes >= 2)
+                fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson').then(res => res.json())
+                    .then(countries => {
+                        const Globe = new ThreeGlobe()
+                            .globeImageUrl(img2)
+                        // console.log("2globe")
+                        // Setup renderer
+                        const renderer = new THREE.WebGLRenderer();
+                        let widthDivider = 2;
+                        renderer.setSize((window.innerWidth - 100) / widthDivider, (window.innerHeight - 100) / widthDivider);
+                        document.getElementById('globe2').style.display = "block";
+                        document.getElementById('globe2').appendChild(renderer.domElement)
 
-                // Add camera controls
-                const tbControls = new THREE.TrackballControls(camera, renderer.domElement);
-                tbControls.minDistance = 101;
-                tbControls.rotateSpeed = 5;
-                tbControls.zoomSpeed = 0.8;
+                        // Setup scene
+                        const scene = new THREE.Scene();
+                        scene.add(Globe);
+                        scene.add(new THREE.AmbientLight(0xbbbbbb));
+                        scene.add(new THREE.DirectionalLight(0xffffff, 0.6));
 
-                // Kick-off renderer
-                (function animate() { // IIFE
-                    // Frame cycle
-                    tbControls.update();
-                    renderer.render(scene, camera);
-                    requestAnimationFrame(animate);
-                })();
-            });
-            if(noOfGlobes>=3)
-            fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson').then(res => res.json())
-            .then(countries => {
-                const Globe = new ThreeGlobe()
-                    .globeImageUrl(img3)
+                        // Setup camera
+                        const camera = new THREE.PerspectiveCamera();
+                        camera.aspect = (window.innerWidth - 100) / (window.innerHeight - 100);
+                        camera.updateProjectionMatrix();
+                        camera.position.z = 400;
 
-                // Setup renderer
-                const renderer = new THREE.WebGLRenderer();
-                let widthDivider = 2;
-                renderer.setSize((window.innerWidth-100) / widthDivider, (window.innerHeight-100) / widthDivider);
-                document.getElementById('globe3').style.display = "block";
-                document.getElementById('globe3').appendChild(renderer.domElement)
+                        // Add camera controls
+                        const tbControls = new THREE.TrackballControls(camera, renderer.domElement);
+                        tbControls.minDistance = 101;
+                        tbControls.rotateSpeed = 5;
+                        tbControls.zoomSpeed = 0.8;
 
-                // Setup scene
-                const scene = new THREE.Scene();
-                scene.add(Globe);
-                scene.add(new THREE.AmbientLight(0xbbbbbb));
-                scene.add(new THREE.DirectionalLight(0xffffff, 0.6));
+                        // Kick-off renderer
+                        (function animate() { // IIFE
+                            // Frame cycle
+                            tbControls.update();
+                            renderer.render(scene, camera);
+                            requestAnimationFrame(animate);
+                        })();
+                    });
+            if (noOfGlobes >= 3)
+                fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson').then(res => res.json())
+                    .then(countries => {
+                        const Globe = new ThreeGlobe()
+                            .globeImageUrl(img3)
 
-                // Setup camera
-                const camera = new THREE.PerspectiveCamera();
-                camera.aspect = (window.innerWidth-100) / (window.innerHeight-100);
-                camera.updateProjectionMatrix();
-                camera.position.z = 400;
+                        // Setup renderer
+                        const renderer = new THREE.WebGLRenderer();
+                        let widthDivider = 2;
+                        renderer.setSize((window.innerWidth - 100) / widthDivider, (window.innerHeight - 100) / widthDivider);
+                        document.getElementById('globe3').style.display = "block";
+                        document.getElementById('globe3').appendChild(renderer.domElement)
 
-                // Add camera controls
-                const tbControls = new THREE.TrackballControls(camera, renderer.domElement);
-                tbControls.minDistance = 101;
-                tbControls.rotateSpeed = 5;
-                tbControls.zoomSpeed = 0.8;
+                        // Setup scene
+                        const scene = new THREE.Scene();
+                        scene.add(Globe);
+                        scene.add(new THREE.AmbientLight(0xbbbbbb));
+                        scene.add(new THREE.DirectionalLight(0xffffff, 0.6));
 
-                // Kick-off renderer
-                (function animate() { // IIFE
-                    // Frame cycle
-                    tbControls.update();
-                    renderer.render(scene, camera);
-                    requestAnimationFrame(animate);
-                })();
-            });
-            if(noOfGlobes==4)
-            fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson').then(res => res.json())
-            .then(countries => {
-                const Globe = new ThreeGlobe()
-                    .globeImageUrl(img4)
+                        // Setup camera
+                        const camera = new THREE.PerspectiveCamera();
+                        camera.aspect = (window.innerWidth - 100) / (window.innerHeight - 100);
+                        camera.updateProjectionMatrix();
+                        camera.position.z = 400;
 
-                // Setup renderer
-                const renderer = new THREE.WebGLRenderer();
-                let widthDivider = noOfGlobes % 3 == 0 ? noOfGlobes:2;
-                renderer.setSize((window.innerWidth-100) / widthDivider, (window.innerHeight-100) / widthDivider);
-                document.getElementById('globe4').style.display = "block";
-                document.getElementById('globe4').appendChild(renderer.domElement)
+                        // Add camera controls
+                        const tbControls = new THREE.TrackballControls(camera, renderer.domElement);
+                        tbControls.minDistance = 101;
+                        tbControls.rotateSpeed = 5;
+                        tbControls.zoomSpeed = 0.8;
 
-                // Setup scene
-                const scene = new THREE.Scene();
-                scene.add(Globe);
-                scene.add(new THREE.AmbientLight(0xbbbbbb));
-                scene.add(new THREE.DirectionalLight(0xffffff, 0.6));
+                        // Kick-off renderer
+                        (function animate() { // IIFE
+                            // Frame cycle
+                            tbControls.update();
+                            renderer.render(scene, camera);
+                            requestAnimationFrame(animate);
+                        })();
+                    });
+            if (noOfGlobes == 4)
+                fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson').then(res => res.json())
+                    .then(countries => {
+                        const Globe = new ThreeGlobe()
+                            .globeImageUrl(img4)
 
-                // Setup camera
-                const camera = new THREE.PerspectiveCamera();
-                camera.aspect = (window.innerWidth-100) / (window.innerHeight-100);
-                camera.updateProjectionMatrix();
-                camera.position.z = 400;
+                        // Setup renderer
+                        const renderer = new THREE.WebGLRenderer();
+                        let widthDivider = noOfGlobes % 3 == 0 ? noOfGlobes : 2;
+                        renderer.setSize((window.innerWidth - 100) / widthDivider, (window.innerHeight - 100) / widthDivider);
+                        document.getElementById('globe4').style.display = "block";
+                        document.getElementById('globe4').appendChild(renderer.domElement)
 
-                // Add camera controls
-                const tbControls = new THREE.TrackballControls(camera, renderer.domElement);
-                tbControls.minDistance = 101;
-                tbControls.rotateSpeed = 5;
-                tbControls.zoomSpeed = 0.8;
+                        // Setup scene
+                        const scene = new THREE.Scene();
+                        scene.add(Globe);
+                        scene.add(new THREE.AmbientLight(0xbbbbbb));
+                        scene.add(new THREE.DirectionalLight(0xffffff, 0.6));
 
-                // Kick-off renderer
-                (function animate() { // IIFE
-                    // Frame cycle
-                    tbControls.update();
-                    renderer.render(scene, camera);
-                    requestAnimationFrame(animate);
-                })();
-            });
-        
+                        // Setup camera
+                        const camera = new THREE.PerspectiveCamera();
+                        camera.aspect = (window.innerWidth - 100) / (window.innerHeight - 100);
+                        camera.updateProjectionMatrix();
+                        camera.position.z = 400;
+
+                        // Add camera controls
+                        const tbControls = new THREE.TrackballControls(camera, renderer.domElement);
+                        tbControls.minDistance = 101;
+                        tbControls.rotateSpeed = 5;
+                        tbControls.zoomSpeed = 0.8;
+
+                        // Kick-off renderer
+                        (function animate() { // IIFE
+                            // Frame cycle
+                            tbControls.update();
+                            renderer.render(scene, camera);
+                            requestAnimationFrame(animate);
+                        })();
+                    });
+
         }
         renderAll()
     </script>
