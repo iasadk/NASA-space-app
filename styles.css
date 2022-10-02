@@ -33,17 +33,22 @@ select{
     margin-right: 2rem;
     padding: 1rem;
     padding-right: 2rem;
+    margin: 0 1rem;
 }
+nav button{
+    margin: 0 1rem;
 
+}
 nav {
     /* border:1px solid red; */
-    /* width: 80%; */
+    /* width: 20%; */
     padding: 1rem .5rem;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+
     align-items: center;
-    /* display: flex;
-    flex-wrap: wrap; */
+    /* display: flex; */
+    flex-wrap: wrap;
 }
 
 .dropdown {
@@ -80,11 +85,9 @@ button {
     height: 50%;
 } */
 #main-globe {
-    display: flex;
-    /* gap: 20px; */
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 
 }
 
@@ -98,6 +101,8 @@ button {
     display: block;
 
 }
+
+
 
 .btn {
     display: flex;
@@ -154,4 +159,10 @@ footer img{
 }
 .btn.compare img{
     width:15px;
+}
+option{
+    color: white;
+}
+.hide{
+    display: none;
 }

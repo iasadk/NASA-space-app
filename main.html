@@ -23,8 +23,36 @@
         let img2 = "RenderData.jfif";
         let img3 = "RenderData.jfif";
         let img4 = "RenderData.jfif";
-        function updateRenderImage(globe, imgSelected, timeFrame, date){
+        function updateRenderImage(id){
+            let selectEle = document.querySelector(`#nav${id}`).querySelectorAll("select");
+            let filePath = "./NASA_CHALLENGE_DATASET_MAP";
+            // for(let i=0; i<2; i++){
+                let category = "";
+
+                for(let i=0; i<selectEle[0].value.length; i++){
+                    if(selectEle[0].value.charAt(i)==" "){
+                        category+="_"
+                    }
+                    else{
+                    category+=selectEle[0].value.charAt(i);
+                    }
+                }
+                filePath += "/"+category   ;
+                // filePath += "/"+selectEle[1].value;
+                filePath += "/"+selectEle[3].value.charAt(0)+".jfif";
+            // }
+            filePath = filePath.toString()
+            console.log(filePath)
+            switch (id){
+                case 1: img1 = filePath;break;
+                case 2: img2 = filePath;break;
+                case 3: img3 = filePath;break;
+                case 4: img4 = filePath;break;
+                default: alert("debug req");
+            }
+            console.log(img1,img2,img3,img4)
             
+            renderAll();
         }
     </script>
     <!-- <nav>
@@ -60,45 +88,49 @@
     </nav> -->
     <div id="main-globe">
         <div id="g1">
-            <nav>
-                <Select name="categories" id="category" class="dropdown category">
+            <nav id = "nav1">
+                <Select name="categories" id="categoryG1" class="dropdown category">
         
                     <option value="none" selected disabled hidden>Select Category</option>
-                    <option value="Land Surface Temprature">Land Surface Temperature</option>
+                    <option value="Land Surface Temperature">Land Surface Temperature</option>
                     <option value="Cloud Fraction">Cloud Fraction</option>
                     <option value="Ozone">Ozone</option>
                     <option value="Water Vapour">Water Vapour</option>
                     <option value="Net Radiation">Net Radiation</option>
         
                 </Select>
-                <Select name="Year" id="Year" class="dropdown">
+                <Select name="Year" id="YearG1" class="dropdown">
                     <option value="none" selected disabled hidden>Select Year</option>
                     <option value="2022">2022</option>
         
                 </Select>
-                <Select name="Month" id="Month" class="dropdown">
+                <Select name="Month" id="MonthG1" class="dropdown">
                     <option value="none" selected disabled hidden>Select Month</option>
                     
                     <option value="September">September</option>
                     
                 </Select>
+                <select name="Day" id="Day" class="dropdown">
+
+                </select>
                 <!-- <select name="Days" id="calendar" class="dropdown">
                     <option value="none" selected disabled hidden>Select Days</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </Select> -->
-                <button class="btn">Show</button>
+                <button class="btn" onClick="updateRenderImage(1)">Show</button>
                 <button class="btn">Export <img src="Vector.svg" alt="arrow"></button>
             </nav>
             <div id="globe1" class="globe"></div>
         </div>
         <div id="g2">
-            <nav>
+            <nav id = "nav2" class="hide">
+                
                 <Select name="categories" id="category" class="dropdown category">
         
                     <option value="none" selected disabled hidden>Select Category</option>
-                    <option value="Land Surface Temprature">Land Surface Temperature</option>
+                    <option value="Land Surface Temperature">Land Surface Temperature</option>
                     <option value="Cloud Fraction">Cloud Fraction</option>
                     <option value="Ozone">Ozone</option>
                     <option value="Water Vapour">Water Vapour</option>
@@ -116,23 +148,26 @@
                     <option value="September">September</option>
                     
                 </Select>
+                <select name="Day" id="Day" class="dropdown">
+                    
+                </select>
                 <!-- <select name="Days" id="calendar" class="dropdown">
                     <option value="none" selected disabled hidden>Select Days</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </Select> -->
-                <button class="btn">Show</button>
+                <button class="btn" onClick="updateRenderImage(2)">Show</button>
                 <button class="btn">Export <img src="Vector.svg" alt="arrow"></button>
             </nav>
             <div id="globe2" class="globe"></div>
         </div>
         <div id="g3">
-            <nav>
+            <nav id = "nav3" class="hide">
                 <Select name="categories" id="category" class="dropdown category">
         
                     <option value="none" selected disabled hidden>Select Category</option>
-                    <option value="Land Surface Temprature">Land Surface Temperature</option>
+                    <option value="Land Surface Temperature">Land Surface Temperature</option>
                     <option value="Cloud Fraction">Cloud Fraction</option>
                     <option value="Ozone">Ozone</option>
                     <option value="Water Vapour">Water Vapour</option>
@@ -150,23 +185,26 @@
                     <option value="September">September</option>
                     
                 </Select>
+                <select name="Day" id="Day" class="dropdown">
+                    
+                </select>
                 <!-- <select name="Days" id="calendar" class="dropdown">
                     <option value="none" selected disabled hidden>Select Days</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </Select> -->
-                <button class="btn">Show</button>
+                <button class="btn" onClick="updateRenderImage(3)">Show</button>
                 <button class="btn">Export <img src="Vector.svg" alt="arrow"></button>
             </nav>
             <div id="globe3" class="globe"></div>
         </div>
         <div id="g4">
-            <nav>
+            <nav id="nav4" class="hide">
                 <Select name="categories" id="category" class="dropdown category">
         
                     <option value="none" selected disabled hidden>Select Category</option>
-                    <option value="Land Surface Temprature">Land Surface Temperature</option>
+                    <option value="Land Surface Temperature">Land Surface Temperature</option>
                     <option value="Cloud Fraction">Cloud Fraction</option>
                     <option value="Ozone">Ozone</option>
                     <option value="Water Vapour">Water Vapour</option>
@@ -184,13 +222,16 @@
                     <option value="September">September</option>
                     
                 </Select>
+                <select name="Day" id="Day" class="dropdown">
+                    
+                </select>
                 <!-- <select name="Days" id="calendar" class="dropdown">
                     <option value="none" selected disabled hidden>Select Days</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </Select> -->
-                <button class="btn">Show</button>
+                <button class="btn" onClick="updateRenderImage(4)">Show</button>
                 <button class="btn">Export <img src="Vector.svg" alt="arrow"></button>
             </nav>
             <div id="globe4" class="globe"></div>
@@ -202,10 +243,25 @@
         <button class="btn compare" id="compare" onClick="updateCompares()">Add to compare <img src="Vector.svg" alt="arrow"></button>
     </footer>
     <script>
+        let dayOptions = document.querySelectorAll("#Day");
+        for(let i=0; i<dayOptions.length; i++){
+            for(let j=1; j<=30; j++){
+                let option = document.createElement("option")
+                option.innerText = j;
+                option.setAttribute("value", j);
+                dayOptions[i].appendChild(option);
+            }
+        }
+    </script>
+    <script>
         
         function renderAll(){
             for(let i=1; i<=4; i++){
                 document.getElementById(`globe${i}`).innerHTML = "";
+            }
+            for(let i=1; i<=noOfGlobes; i++){
+
+                document.querySelector(`#nav${i}`).classList.remove("hide");
             }
             // const Globe = new ThreeGlobe()
             //         .globeImageUrl('RenderData.jfif')
@@ -248,8 +304,37 @@
             if(noOfGlobes>=1)
             fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson').then(res => res.json())
             .then(countries => {
+                const select1 = document.querySelector("#categoryG1");
+                const select2 = document.querySelector("#YearG1");
+                const select3 = document.querySelector("#MonthG1");
+                const showG1 = document.querySelector("#showG1");
+
+
+
+                let selectedCategory = "";
+                let selectedMonth = "";
+                let selectedYear = "";
                 const Globe = new ThreeGlobe()
+
+
+                select1.addEventListener("input", (e) => {
+                    selectedCategory = e.target.value;
+                });
+                select2.addEventListener("input", (e) => {
+                    selectedYear = e.target.value;
+                });
+                select3.addEventListener("input", (e) => {
+                    selectedMonth = e.target.value;
+                });
+
+                if(selectedCategory=="Land Surface Temperature" && selectedYear!="" && selectedMonth!=""){
+                    Globe
                     .globeImageUrl(img1)
+                }
+                else{
+
+                    Globe.globeImageUrl(img1)
+                }
 
                 // Setup renderer
                 const renderer = new THREE.WebGLRenderer();
