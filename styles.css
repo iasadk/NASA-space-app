@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 ::-webkit-scrollbar{
-    display: hidden;
+    display: none;
 }
 body {
     background: #000;
@@ -77,18 +77,20 @@ button {
 #main-globe {
     display: flex;
     gap: 20px;
+
     
 }
 
 
 #globe2{
     display: none;
+    border-left: 1px solid white;
+
 
 }
 
 #globe2.show{
     display: block;
-
 }
 
 .btn {
