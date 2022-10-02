@@ -89,17 +89,21 @@ button {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 
-<<<<<<< HEAD
-    
-=======
->>>>>>> 067fa7e27120d6c31fc1940c29b879e97b074192
 }
 
+#Day{
+    width: 60px;
+}
 
 #globe2{
     display: none;
     border-left: 1px solid white;
 
+
+}
+
+#g4{
+    border-left: 1px solid white;
 
 }
 
